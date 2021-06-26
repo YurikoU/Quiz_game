@@ -30,8 +30,7 @@ const quiz = [
 ];
 const quizLength = quiz.length;
 let quizIndex = 0;
-
-
+let score = 0;
 
 
 
@@ -56,6 +55,7 @@ setupQuiz();
 const clickHandler = (e) => {
     if (quiz[quizIndex].correct === e.target.textContent) {
         window.alert('Correct!!');
+        score++;
     } else {
         window.alert('Oh no :(');
     }
@@ -65,9 +65,10 @@ const clickHandler = (e) => {
     if (quizIndex < quizLength) {
         setupQuiz();
     } else {
-        window.alert('All quizzes are done! Good job :)');
+        window.alert('All quizzes are done! Good job :)\nYour score: ' + score + '/' + quizLength);
     }
 };
+
 
 //クリックしたら、4つのボタンいずれも同じ正誤判定をするように、定義。
 let handleIndex = 0;
